@@ -1,5 +1,5 @@
 create table clientes (
-    id VARCHAR(14) NOT NULL,
+    cpf VARCHAR(14) UNIQUE NOT NULL PRIMARY KEY,
     nome VARCHAR NOT NULL,
     email VARCHAR,
     telefone INT
