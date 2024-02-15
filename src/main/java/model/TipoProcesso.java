@@ -1,9 +1,6 @@
 package model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Table(name = "tipo_processo")
@@ -16,9 +13,12 @@ import lombok.*;
 public class TipoProcesso {
 
     @Id
-    @Column(unique = true)
+    @Column(unique = true, nullable = false)
     private String nome;
 
     @Column
     private String descricao;
+
+    @OneToOne(mappedBy = "tipoProcesso")
+    private Processo processo;
 }

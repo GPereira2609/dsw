@@ -16,19 +16,21 @@ import lombok.*;
 public class Cliente {
 
     @Id
-    @NotBlank
-    @Min(14)
-    @Max(14)
-    @Column(unique = true)
+    @Column(unique = true, nullable = false, length = 14)
     private String cpf;
 
-    @NotBlank
-    @Column
+    @Column(nullable = false)
     private String nome;
 
     @Column
     private String email;
 
     @Column
+    private String endereco;
+
+    @Column
     private Integer telefone;
+
+    @OneToOne(mappedBy = "cliente")
+    private Processo processo;
 }
